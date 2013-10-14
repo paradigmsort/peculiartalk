@@ -1,5 +1,5 @@
 Peculiartalk::Application.routes.draw do
   resources :storys
-  # root :to => 'welcome#index'
-
+  resources :sessions, only: [:new, :create, :destroy]
+  root to: 'sessions#new'
 end
