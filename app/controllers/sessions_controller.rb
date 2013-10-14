@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by_name(params[:session][:name])
         if user and user.authenticate(params[:session][:password])
-            flash.now[:success] = "Signed in!"
-            render 'new'
+            sign_in user
+            redirect_to user
         else
             flash.now[:error] = "Try again!"
             render 'new'
