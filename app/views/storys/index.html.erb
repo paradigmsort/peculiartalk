@@ -1,0 +1,4 @@
+<h1>Stories</h1>
+<% @stories.each do |s| %>
+    <%= link_to s.name, story_path(s.id) %>
+<% end %>
